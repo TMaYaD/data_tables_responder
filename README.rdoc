@@ -1,3 +1,3 @@
-= DataTablesResponder
+= DataTableResponder
 
-This project rocks and uses MIT-LICENSE.
+Responder to link rails resources with data_tables
