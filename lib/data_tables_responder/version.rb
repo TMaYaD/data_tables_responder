@@ -1,0 +1,3 @@
+module DataTablesResponder
+  VERSION = "0.0.1"
+end
