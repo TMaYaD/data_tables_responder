@@ -7,7 +7,7 @@ module DataTablesResponder
     total_records = resource.count
 
     query_scope = resource
-    query_scope = query_scope.q params['sSearch'] if params['sSearch']
+    query_scope = query_scope.q params['sSearch'] if params['sSearch'] && query_scope.respond_to?(:q)
 
     total_display_records = query_scope.count
 
