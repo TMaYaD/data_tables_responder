@@ -7,11 +7,11 @@ require "data_tables_responder/version"
 Gem::Specification.new do |s|
   s.name        = "data_tables_responder"
   s.version     = DataTablesResponder::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of DataTablesResponder."
-  s.description = "TODO: Description of DataTablesResponder."
+  s.authors     = ["Sankara Narayanan", "Subhash Chandra"]
+  s.email       = ["sankara.narayanan@investopresto.com", "TMaYaD+github@gmail.com"]
+  s.homepage    = "https://github.com/TMaYaD/data_tables_responder"
+  s.summary     = %q{Data Tables Responder for jQuery Data table}
+  s.description = %q{Data Tables Responder for jQuery Data table}
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
