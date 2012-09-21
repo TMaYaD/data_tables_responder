@@ -19,6 +19,6 @@ module DataTablesResponder
       :aaData               => result,
       :iTotalDisplayRecords => total_display_records,
       :iTotalRecords        => total_records
-    }
+    }, :content_type => Mime::JSON.to_s
   end
 end
