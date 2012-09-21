@@ -4,16 +4,18 @@ module DataTablesResponder
   def to_data_table
     params = request.filtered_parameters
 
-    total_records = resource.count
+    total_records = resource.except(:limit).count
 
     query_scope = resource
     query_scope = query_scope.q params['sSearch'] if params['sSearch'] && query_scope.respond_to?(:q)
 
-    total_display_records = query_scope.count
+    total_display_records = query_scope.except(:limit).count
 
     result = query_scope
-    result = result.offset  params['iDisplayStart']   if params['iDisplayStart']
-    result = result.limit   params['iDisplayLength']  if params['iDisplayLength']
+
+    if params['iDisplayStart'] && params['iDisplayLength']
+      result = result.offset(params['iDisplayStart']).limit(params['iDisplayLength'])
+    end
 
     render :json => {
       :aaData               => result,
