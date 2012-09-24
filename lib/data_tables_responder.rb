@@ -4,6 +4,8 @@ module DataTablesResponder
   def to_data_table
     params = request.filtered_parameters
 
+    # except is needed
+    # without limit it slows down the response
     total_records = resource.except(:limit).count
 
     query_scope = resource
@@ -15,6 +17,12 @@ module DataTablesResponder
 
     if params['iDisplayStart'] && params['iDisplayLength']
       result = result.offset(params['iDisplayStart']).limit(params['iDisplayLength'])
+    end
+
+    if params['iSortCol_0']
+      column_index = params['iSortCol_0']
+      column_name = params["mDataProp_#{column_index}"]
+      result = result.order("#{column_name} #{params['sSortDir_0']}")
     end
 
     render :json => {
